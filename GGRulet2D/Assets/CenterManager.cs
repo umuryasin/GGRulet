@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class CenterManager : MonoBehaviour
 {
+
+    public float InitialRotVel=100;
+    public float Deceleration = 0.1f;
+
     private Rigidbody2D Rigidbody;
-    private float rotationVel = 15;
+    private float RotVel;
+
+
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
-        Rigidbody.angularVelocity = rotationVel;
+        Rigidbody.angularVelocity = InitialRotVel;
+        RotVel = InitialRotVel;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Rigidbody.angularVelocity = rotationVel;
+        RotVel = Mathf.Max(RotVel - Deceleration,0);
+        Rigidbody.angularVelocity = RotVel;
     }
 }

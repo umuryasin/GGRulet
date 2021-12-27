@@ -6,6 +6,7 @@ public class ball : MonoBehaviour
 {
     private Rigidbody2D Rigidbody;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,6 @@ public class ball : MonoBehaviour
     {
         float ballX = Rigidbody.transform.position.x;
         float ballY = Rigidbody.transform.position.y;
-
         float forceX = 0 - ballX;
         float forceY = 0 - ballY;
 
